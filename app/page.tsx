@@ -1,23 +1,20 @@
-import Image from "next/image";
+// app/page.tsx
 import ExploreBtn from "@/components/ExploreBtn";
-import EventCard from "@/components/EventCard";
-import { events } from "@/lib/constants";
+import { Suspense } from "react";
+import EventsList from "@/components/EventsList";
 
 export default function Home() {
-  console.log('what type of a component I am?')
   return (
     <section>
-      <h1 className="text-center">The Hub for Every Dev <br/> Event You can't Miss </h1>
+      <h1 className="text-center">The Hub for Every Dev <br/> Event You can't Miss</h1>
       <p className="text-center mt-5">Hackathons, Meetups, and Conferences, All in One Place</p>
       <ExploreBtn/>
       <div className="mt-20 space-y-7">
-            <h3>Featured Events</h3>
-            <ul className="events">{events.map((event)=>(
-                <li key={event.title}>
-                  <EventCard {...event}/>
-                  </li>
-            ))}</ul>
-         </div>
+        <h3>Featured Events</h3>
+        <Suspense fallback={<p>Loading events...</p>}>
+          <EventsList />
+        </Suspense>
+      </div>
     </section>
   );
 }
