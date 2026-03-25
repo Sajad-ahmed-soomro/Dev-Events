@@ -21,9 +21,10 @@ const EventCard = ({image,title,slug,location,date,time}:Props) => {
       event_date: date,
     });
   };
-
+  console.log("slug",slug)
   return (
-    <Link href={`/events`} id="event-card" onClick={handleClick}>
+    <Link href={`/events/${slug}`} id="event-card" onClick={handleClick}>
+    
         <Image src={image} alt={title} width={410} height={300} className='poster'/>
         <div className='datetime'>
             <Image src="/icons/pin.svg" alt="location" width={14} height={14}/>
