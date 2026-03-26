@@ -10,8 +10,8 @@ const Navbar = () => {
             <p>DevEvent</p></Link>
             <ul>
                 <Link href="/">Home</Link>
-                <Link href="/">Events</Link>
-                <Link href="/">Create</Link>
+                <Link href="/events">Events</Link>
+                <Link href="/create-event">Create Event</Link>
             </ul>
             
         </nav>
