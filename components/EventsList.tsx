@@ -2,7 +2,7 @@
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
 
 export default async function EventsList() {
   const response = await fetch(`${BASE_URL}/api/events`);
