@@ -1,4 +1,4 @@
-```markdown
+``markdown
 # DevEvent - Event Management Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black)](https://nextjs.org/)
@@ -11,13 +11,7 @@ A modern event management platform built with Next.js, MongoDB, and Cloudinary. 
 
 ## 📸 Screenshots
 
-| Home Page | Events Listing | Create Event |
-|-----------|---------------|--------------|
-| ![Home](./screenshots/home.png) | ![Events](./screenshots/events.png) | ![Create](./screenshots/create-event.png) |
 
-| Event Details | Success Notification |
-|---------------|---------------------|
-| ![Details](./screenshots/event-details.png) | ![Success](./screenshots/success.png) |
 
 ## ✨ Features
 
