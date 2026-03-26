@@ -10,9 +10,11 @@ export default async function EventsList() {
   try {
     const response = await fetch(`${BASE_URL}/api/events`, { cache: "no-store" });
     const text = await response.text();
+    console.log("base url",BASE_URL)
 
     try {
       const data = JSON.parse(text);
+      console.log('data',data)
       events = data.events || [];
     } catch (err) {
       console.error("Failed to parse JSON from /api/events:", text);
