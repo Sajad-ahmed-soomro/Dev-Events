@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 
-// Remove or fix this line
-// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
-
 export default function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +15,6 @@ export default function EventsList() {
       try {
         setLoading(true);
         
-        // Use relative URL - this will work on any domain
         const response = await fetch('/api/events', { 
           cache: "no-store" 
         });
@@ -29,6 +25,8 @@ export default function EventsList() {
         
         const data = await response.json();
         console.log("Fetched events:", data);
+        console.log("First event structure:", data.events?.[0]);
+        
         setEvents(data.events || []);
         setError(null);
       } catch (err) {
@@ -57,16 +55,34 @@ export default function EventsList() {
   }
 
   if (!events || events.length === 0) {
-    return <p>No events found.</p>;
+    return (
+      <div>
+        <p>No events found.</p>
+        <p>Debug: Events array length = {events?.length}</p>
+      </div>
+    );
   }
 
   return (
     <ul className="events">
-      {events.map((event: IEvent) => (
-        <li key={event.title} className="list-none">
-          <EventCard {...event} />
-        </li>
-      ))}
+      
+{events.map((event: IEvent) => {
+  // Create a slug from title if not available
+  const slug = event.slug || event.title.toLowerCase().replace(/\s+/g, '-');
+  
+  return (
+    <li key={event.title} className="list-none">
+      <EventCard 
+        image={event.image}
+        title={event.title}
+        slug={slug}
+        location={event.location}
+        date={event.date}
+        time={event.time}
+      />
+    </li>
+  );
+})}
     </ul>
   );
 }
