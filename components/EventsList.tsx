@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 
+// Remove or fix this line
+// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
+
 export default function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [loading, setLoading] = useState(true);
