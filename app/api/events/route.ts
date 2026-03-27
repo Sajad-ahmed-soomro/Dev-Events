@@ -233,17 +233,27 @@ export async function OPTIONS() {
     },
   });
 }
-export async function GET(){
-
+export async function GET(req: NextRequest) {
     try {
         await connectDB();
-        const events=await Event.find().sort({createdAt:-1});
-
-        return NextResponse.json({message:"Event fetched successfuly",events},{status:201},)
-
+        const events = await Event.find().sort({ createdAt: -1 });
         
-    } catch (e) {
-        return NextResponse.json({message:"Event fetching failed ",error:e},{status:500})
+        return NextResponse.json(
+            { 
+                message: "Event fetched successfully", 
+                events 
+            }, 
+            { status: 200 }  // Changed from 201 to 200 (GET should return 200)
+        );
+        
+    } catch (error) {
+        console.error('GET Error:', error);
+        return NextResponse.json(
+            { 
+                message: "Event fetching failed", 
+                error: error instanceof Error ? error.message : "Unknown error" 
+            }, 
+            { status: 500 }
+        );
     }
-
 }
