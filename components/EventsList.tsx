@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "";
-
 export default function EventsList() {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,9 +14,9 @@ export default function EventsList() {
     const fetchEvents = async () => {
       try {
         setLoading(true);
-        console.log("Fetching from:", `${BASE_URL}/api/events`);
         
-        const response = await fetch(`${BASE_URL}/api/events`, { 
+        // Use relative URL - this will work on any domain
+        const response = await fetch('/api/events', { 
           cache: "no-store" 
         });
         
@@ -40,14 +38,19 @@ export default function EventsList() {
     };
 
     fetchEvents();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
   if (loading) {
     return <p>Loading events...</p>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return (
+      <div>
+        <p>Error: {error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
+      </div>
+    );
   }
 
   if (!events || events.length === 0) {
