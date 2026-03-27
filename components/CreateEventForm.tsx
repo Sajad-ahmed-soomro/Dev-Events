@@ -24,26 +24,6 @@ interface FormErrors {
   [key: string]: string;
 }
 
-const TEST_DATA: EventFormData = {
-  title: "Cloud Next 2029",
-  description: "The premier cloud computing event of the year featuring the latest innovations",
-  overview: "Join thousands of developers, architects, and cloud professionals for an immersive experience exploring next-gen cloud technologies, AI integration, and sustainable computing solutions",
-  venue: "Moscone Center",
-  location: "San Francisco, CA",
-  date: "2025-04-10",
-  time: "08:30",
-  mode: "hybrid",
-  audience: "Cloud engineers, DevOps professionals, developers, IT leaders, architects",
-  agenda: [
-    "08:30 AM - 09:30 AM | Keynote: The Future of Cloud Computing",
-    "09:45 AM - 10:45 AM | AI Revolution: Transforming Cloud Services",
-    "11:00 AM - 12:00 PM | Hands-on Workshop: Building Scalable Apps",
-    "01:30 PM - 02:30 PM | Panel: Cloud Security Best Practices"
-  ],
-  organizer: "Google Cloud",
-  tags: ["Cloud", "DevOps", "Kubernetes", "AI"],
-  image: null
-};
 
 export default function CreateEventForm() {
   const router = useRouter();
@@ -67,12 +47,7 @@ export default function CreateEventForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-  const loadTestData = () => {
-    setFormData(TEST_DATA);
-    setErrors({});
-    // Clear image preview for test data since it doesn't have an actual file
-    setImagePreview(null);
-  };
+  
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -308,15 +283,7 @@ export default function CreateEventForm() {
         <p className="text-light-100 text-lg mt-3">
           Fill in the details below to create your event
         </p>
-        
-        <button
-          type="button"
-          onClick={loadTestData}
-          className="mt-4 bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 px-4 py-2 rounded-md text-sm transition-colors flex items-center gap-2"
-        >
-          <i className="fas fa-flask"></i>
-          Load Test Data
-        </button>
+      
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
