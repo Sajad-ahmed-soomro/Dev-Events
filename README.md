@@ -11,6 +11,7 @@ A modern event management platform built with Next.js, MongoDB, and Cloudinary. 
 
 ## 📸 Screenshots
 
+<img width="1394" height="803" alt="image" src="https://github.com/user-attachments/assets/783d19b0-89fc-4ef9-b714-816816231fdc" />
 
 
 ## ✨ Features
@@ -37,8 +38,8 @@ A modern event management platform built with Next.js, MongoDB, and Cloudinary. 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/devevent.git
-cd devevent
+https://github.com/Sajad-ahmed-soomro/Dev-Events.git
+cd Dev-Events
 ```
 
 2. **Install dependencies**
