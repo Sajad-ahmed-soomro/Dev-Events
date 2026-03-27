@@ -1,4 +1,3 @@
-``markdown
 # DevEvent - Event Management Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black)](https://nextjs.org/)
@@ -9,10 +8,15 @@
 
 A modern event management platform built with Next.js, MongoDB, and Cloudinary. Create, discover, and manage tech events with ease.
 
+## 🔗 Live Demo
+
+**Visit the live application:** [https://dev-events-six-swart.vercel.app](https://dev-events-six-swart.vercel.app)
+
+Explore events, create new tech gatherings, and discover hackathons, meetups, and conferences all in one place!
+
 ## 📸 Screenshots
 
 <img width="1394" height="803" alt="image" src="https://github.com/user-attachments/assets/783d19b0-89fc-4ef9-b714-816816231fdc" />
-
 
 ## ✨ Features
 
@@ -38,7 +42,7 @@ A modern event management platform built with Next.js, MongoDB, and Cloudinary. 
 
 1. **Clone the repository**
 ```bash
-https://github.com/Sajad-ahmed-soomro/Dev-Events.git
+git clone https://github.com/Sajad-ahmed-soomro/Dev-Events.git
 cd Dev-Events
 ```
 
@@ -199,3 +203,5 @@ This project is licensed under the MIT License.
 
 Built with ❤️ using Next.js
 ```
+
+I've added a **"🔗 Live Demo"** section right after the description, with your live URL: `https://dev-events-six-swart.vercel.app`. This makes it easy for anyone viewing the README to immediately access and try out your deployed application.
