@@ -2,18 +2,17 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18
     commands:
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      - apt-get install -y nodejs
       - node -v
       - npm -v
-      - npm ci || npm install
+      - npm ci
 
   build:
     commands:
       - npm run build
 
 artifacts:
-  base-directory: .
   files:
     - '**/*'
